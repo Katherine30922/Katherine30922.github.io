@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Expense Tracker</title>
+    <link rel="icon" type="image/png" href="./money.png">
+    <link rel="stylesheet" href="./about.css">
+    <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <section class="container">
+        <div class="header">
+             <p class="main-title">Instrction</p>
+            <article>
+                Expense Tracker is a simple and handy tool which helps you track every expense and improve the financial health of your budget, staying on top of your cash flow .  
+            </article>
+        </div>
+       
+        <div class="instructions">
+            <div>
+                <p class="step-title">step 1</p>
+                <img src="./instruction/1.png" alt="step1" >
+                <article class="step-detail">
+                    First, enter your expense detail in the input box at the top.<br>
+                    *All blanks are required.<br>
+                    *Amount cannot be negative.
+                </article>
+            </div>
+            <div>
+                <p class="step-title">step 2</p>
+                <img src="./instruction/2.png" alt="step2" >
+                <article class="step-detail">
+                    Then, based on the type of expense, select a category that most closely matches.
+                </article>
+            </div>
+            <div>
+                <p class="step-title">step 3</p>
+                <img src="./instruction/3.png" alt="step3" >
+                <article class="step-detail">
+                    Finally, an expense breakdown will be automatically added to the list below.<br>
+                    On the right is a table that keeps track of the sums for each category and records the total cost.
+                </article>
+            </div>
+            <div>
+                <p class="step-title">side bar</p>
+                <img src="./instruction/4.png" alt="step4">
+                <article class="step-detail">
+                    There is a side bar hide in the white square icon, clicking it and you will see the following list.
+                </article>
+            </div>
+            <div>
+                <p class="step-title">invoice lottery website</p>
+                <img src="./instruction/5.png" alt="step5">
+                <article class="step-detail">
+                    Links to external pages. You can check the winning numbers on the website. Hope you win the lottery!
+                </article>
+            </div>
+            <div>
+                <p class="step-title">dark mode</p>
+                <img src="./instruction/6.png" alt="step6">
+                <article class="step-detail">
+                    It will change to dark mode when you click it.
+                </article>
+            </div>
+            <div>
+                <p class="step-title">contact us</p>
+                <img src="./instruction/7.png" alt="step7">
+                <article class="step-detail">
+                    It will link to our email, and you can report problems or say Hi to us!
+                </article>
+            </div>
+       
+    </section>
+</body>
+<script src="https://unpkg.com/kursor"></script>
+<script>
+    new kursor({
+        type: 2,
+        color: 'rgb(58, 91, 105)'
+    })
+</script>
+
+<script>
+    function cross(){
+       const rotate1=document.querySelector(".dash1"),
+       rotate2=document.querySelector(".dash2"),
+       showBar=document.querySelector(".sidebar-container");
+
+       if(rotate1.classList.contains("cross-animation1")){
+        rotate1.classList.remove("cross-animation1");
+        rotate2.classList.remove("cross-animation2");
+        showBar.style.display="none";
+       }else{
+        rotate1.classList.add("cross-animation1");
+        rotate2.classList.add("cross-animation2");
+        showBar.style.display="block";
+        showBar.classList.add("slideIn-animation");
+       }
+    }
+    function darkMode(){
+        const backgroundColor=document.body,
+        sidebarColor=document.querySelector(".sidebar-container"),
+        categoryColor=document.querySelector(".category-item");
+
+        backgroundColor.classList.toggle("dark-mode");
+        sidebarColor.classList.toggle("dark-sidebar");
+    }
+</script>
+</html>

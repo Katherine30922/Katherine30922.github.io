@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="icon" type="image/png" href="./money.png">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   
+</head>
+<body>
+   <section class="header">
+    <div class="dash" onclick="cross()">
+        <span class="dash1"></span>
+        <span class="dash2"></span>
+    </div>
+    <div class="sidebar-container"> 
+        <div class="sidebar not-selectable">
+            <ul>
+                <li><a href="./about.html" target="_blank"><i class="fa-regular fa-circle-question"></i> about expense tracker </a></li>
+                <li><a href="https://invoice.pro2e.com.tw/content/invoice/index.aspx" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square fa-flip-horizontal"></i> invoice lottery</a></li>
+                <li class="darkmode" onclick="darkMode()"><i class="fa-regular fa-moon"></i> dark mode</li>
+                <li><a href="mailto:bb3092243@gmail.com"><i class="fa-regular fa-face-smile"></i> contact us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="alert-text">
+    </div>
+    <div class="input-box">
+        <p class="main-title" class="not-selectable" >Expense Tracker</p>
+        <input id="input-box" type="text" class="date" placeholder="date:" onfocus="(this.type='date')">
+        <input id="input-box" type="text" class="description" placeholder="Description:">
+        <input id="input-box" type="number" class="amount" placeholder="Amount spent:">
+    </div>
+   </section>
+
+   <section class="categories">
+    <div class="category-title">
+        <p class="not-selectable">Choose a Category</p>
+    </div>
+    <div class="category-container">
+        <div class="category-item"id="food">
+            <p class="not-selectable">food</p><br>
+        </div>
+        <div class="category-item"id="transportion">
+            <p class="not-selectable">transport</p>
+        </div>
+        <div class="category-item" id="education">
+            <p class="not-selectable">education</p>
+        </div>
+        <div class="category-item"id="household">
+            <p class="not-selectable">household</p>
+        </div>
+        <div class="category-item" id="recreation">
+            <p class="not-selectable">recreation</p>
+        </div>
+        <div class="category-item" id="clothing">
+            <p class="not-selectable">clothing</p>
+        </div>
+        <div class="category-item" id="healthcare">
+            <p class="not-selectable">healthcare</p>
+        </div>
+        <div class="category-item" id="others">
+            <p class="not-selectable">others</p>
+        </div>
+       
+    </div>
+   </section>
+   <div class="table-title">
+        <p class="not-selectable">All expenses</p>
+    </div>
+   <section class="table-container">
+    <table class="detail-table">
+        <tr>
+            <th>date</th>
+            <th>category</th>
+            <th>description</th>
+            <th>amount</th>
+        </tr>
+    </table>
+    <table class="aggregate-table">
+        <tr>
+            <th>category</th>
+            <th>sum</th>
+
+        </tr>
+        <tr>
+            <td id="food" class="category-sum" style="color: rgb(206, 66, 87)">food</td>
+            <td><span class="catSum"></span></td>
+        </tr>
+        <tr>
+            <td id="education" class="category-sum" style="color: rgb(208, 146, 59)">trans</td>
+            <td><span class="catSum"></span></td>
+        </tr>
+        <tr>
+            <td id="transportion" class="category-sum" style="color:rgb(235, 187, 73)">education</td>
+            <td><span class="catSum"></span></td>
+        </tr>
+        <tr>
+            <td id="household" class="category-sum" style="color:rgb(169, 194, 95)">household</td>
+            <td><span class="catSum"></span></td>
+        </tr>
+        <tr>
+            <td id="recreation" class="category-sum" style="color:rgb(122, 180, 189)">recreation</td>
+            <td><span class="catSum"></span></td>
+        </tr>
+        <tr>
+            <td id="clothing" class="category-sum" style="color:rgb(86, 135, 184)">clothing</td>
+            <td><span class="catSum"></span></td>
+        </tr>
+        <tr>
+            <td id="healthcare" class="category-sum" style="color:rgb(151, 139, 173);">healthcare</td>
+            <td><span class="catSum"></span></td>
+        </tr>
+        <tr>
+            <td id="others" class="category-sum" style="color:rgb(151, 150, 150);">others</td>
+            <td><span class="catSum"></span></td>
+        </tr>
+        <tr>
+            <th>total</th>
+            <td><span id="total"></span></td>
+        </tr>
+    </table>
+   </section>
+
+   <button class="clearbtn"><i class="fa-regular fa-trash-can"></i> clear all</button> 
+   <div class="pop-out">
+        <p>Are you sure to clear all the records?</p>
+        <div class="btn-container">
+            <button class="confirm no">no</button>
+            <button class="confirm yes">yes</button>
+        </div>
+   </div>
+   <footer>
+    <p class="copyright not-selectable">&#169 2023 Katherine Lin. All rights reserved.</p>
+   </footer>
+</body>
+<script src="./app.js"></script>
+<script src="https://unpkg.com/kursor"></script>
+<script>
+    function cross(){
+       const rotate1=document.querySelector(".dash1"),
+       rotate2=document.querySelector(".dash2"),
+       showBar=document.querySelector(".sidebar-container");
+
+       if(rotate1.classList.contains("cross-animation1")){
+        rotate1.classList.remove("cross-animation1");
+        rotate2.classList.remove("cross-animation2");
+        showBar.style.display="none";
+       }else{
+        rotate1.classList.add("cross-animation1");
+        rotate2.classList.add("cross-animation2");
+        showBar.style.display="block";
+        showBar.classList.add("slideIn-animation");
+       }
+    }
+    function darkMode(){
+        const backgroundColor=document.body,
+        sidebarColor=document.querySelector(".sidebar-container"),
+        categoryColor=document.querySelector(".category-item"),
+        darkmode=document.querySelector(".darkmode");
+
+        backgroundColor.classList.toggle("dark-mode");
+        sidebarColor.classList.toggle("dark-sidebar");
+         if(backgroundColor.classList.contains("dark-mode")){
+            darkmode.innerHTML = '<i class="fa-regular fa-sun"></i> light mode';
+         }else{
+            darkmode.innerHTML = '<i class="fa-regular fa-moon"></i> dark mode';
+         }
+    }
+</script>
+<script>
+    new kursor({
+        type: 2,
+        color: 'rgb(58, 91, 105)'
+    })
+</script>
+</html>
